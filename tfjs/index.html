@@ -2,7 +2,8 @@
 <script>
           async function loadModel(){ 
               model = await tf.loadModel('web_model/model.json') 
-              y = model.predict(tf.zeros([1,2])) 
+              predictions = model.predict([x_test]) 
+	      y = np.argmax(predictions[1000])
               document.getElementById('out').innerHTML = y.dataSync()[0] 
           } 
           loadModel() 
