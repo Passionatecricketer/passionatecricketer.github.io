@@ -2,6 +2,10 @@
 <script>
           async function loadModel(){ 
               model = await tf.loadModel('web_model/model.json') 
+	      mnist = tf.keras.datasets.mnist 
+	      (x_train, y_train),(x_test, y_test) = mnist.load_data()
+	      x_train = tf.keras.utils.normalize(x_train, axis=1) 
+	      x_test = tf.keras.utils.normalize(x_test, axis=1) 
               predictions = model.predict([x_test]) 
 	      y = np.argmax(predictions[1000])
               document.getElementById('out').innerHTML = y.dataSync()[0] 
