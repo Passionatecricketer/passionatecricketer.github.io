@@ -3,56 +3,56 @@
 
 A simple web application to predict the handwritten digit
 
-Tech Stack :-
+# Tech Stack :-
 
-Python==3.6.5
-Tensorflow==1.5
-Tensorflowjs==1.6
+ -Python==3.6.5
+ -Tensorflow==1.5
+ -Tensorflowjs==1.6 
 
-Process:-
+# Process:-
 
-Step1 :- Creating the model
+# Step1 :- Creating the model
 
-Create a basic model using tensorflow and keras to predict the digit using mnist dataset
+    -Create a basic model using tensorflow and keras to predict the digit using mnist dataset
 
-Step2 :- Saving the model
+# Step2 :- Saving the model
 
-Save the created keras model into a .h5 file
+    -Save the created keras model into a .h5 file
 
-Command Used :-
+ ## Command Used :-
 
-model.save(‘model.h5’)
+  >>> model.save(ï¿½model.h5ï¿½)
 
-Step3 :- Convert the keras model into webmodel
+# Step3 :- Convert the keras model into webmodel
 
-Create a seperate virtual environment and install tensorflowjs
+    -Create a seperate virtual environment and install tensorflowjs
 
-Command Used :-
+   ## Command Used :-
 
-pip install tensorflowjs
+   >>> pip install tensorflowjs
 
-Convert the model
+   ## Convert the model
 
-Command Used :-
+   ## Command Used :-
 
-Tensorflowjs_converter –input_format=keras path\to\.h5 file path\to\target_folder
+   >>> Tensorflowjs_converter ï¿½input_format=keras path\to\.h5 file path\to\target_folder
 
 Two files namely
 Group1-shard1 of 1
 Model.json
 Will be created and will be used
 
-Step4 :- Creating the Frontend
+# Step4 :- Creating the Frontend
 
-Create a file namely tfjs.html to include all the frontend part and tensorflow converted model and prediction to be made
+    -Create a file namely tfjs.html to include all the frontend part and tensorflow converted model and prediction to be made
 
-Command used for loading model into html file – 
+   ## Command used for loading model into html file :-
 
-tf.loadLayersModel('model/model.json')
+   >>> tf.loadLayersModel('model/model.json')
 
-Command to make predictions –
+   ## Command to make predictions ï¿½
 
-window.model.predict([tf.tensor(input).reshape([1, 28, 28, 1])]).array()
+   >>> window.model.predict([tf.tensor(input).reshape([1, 28, 28, 1])]).array()
 
 Complete frontend code available in tfjs.html
 
